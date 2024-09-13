@@ -12,8 +12,9 @@
 
 </head>
 <body>
-	<h1>結果発表</h1>
-	<form action="" method="post" enctype="multipart/form-data">
-	<h2><name="animal">です</h2>
+	<h1 style="text-align: center">結果発表</h1>
+	<c:forEach items="${catdogList}" var="catdog"> 
+	<h2><c:out value="${catdog.id}"/>です</h2>
+	</c:forEach>
 </body>
 </html>
