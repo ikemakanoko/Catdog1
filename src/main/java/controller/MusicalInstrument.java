@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 
-import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +18,6 @@ public class MusicalInstrument extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// DB接続
-		InitialContext ctx = null;
-
 		request.getRequestDispatcher("/WEB-INF/view/start.jsp")
 				.forward(request, response);
 	}
