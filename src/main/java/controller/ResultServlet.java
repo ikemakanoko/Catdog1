@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +27,24 @@ public class ResultServlet extends HttpServlet {
 		Connection con = null;
 		try {
 			InitialContext ctx = new InitialContext();
-			DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/catdog_db");
+			DataSource ds = (DataSource) 
+			ctx.lookup("java:comp/env/jdbc/catdog_db");
 			con = ds.getConnection();
 			System.out.println("接続成功");
-
+			
+			String sql = "SELECT * FROM members WHERE id = ?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, "id");
+			stmt.setString(2, "id");
+			ResultSet rs = stmt.executeQuery();
+			
+			
+			//Listを用意し、while文でデータをマッピングする
 			List<Catdog> catdogList = new ArrayList<>();
-
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				String animal = rs.getString("animal");
+			}
 			//Tableの中身の取得
 			String id = request.getParameter("id");
 			String animal = request.getParameter("animal");
