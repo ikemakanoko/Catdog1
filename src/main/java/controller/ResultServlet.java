@@ -41,7 +41,6 @@ public class ResultServlet extends HttpServlet {
 		while (rs.next()) {
 			System.err.println("ok");
 			
-			
 			Catdog catdog = new Catdog();
 			//Integer idInteger = (Integer) rs.getObject("id");
 			catdog.setId((Integer)rs.getObject("id"));
@@ -67,13 +66,6 @@ public class ResultServlet extends HttpServlet {
 		}//次の画面に遷移
 		request.getRequestDispatcher("/WEB-INF/view/result.jsp")
 				.forward(request, response);
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

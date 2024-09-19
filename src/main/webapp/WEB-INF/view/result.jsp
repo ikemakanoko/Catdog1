@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -11,11 +12,10 @@
 
 </head>
 <body>
-	<h1 style="text-align: center">結果発表</h1>
-	<c:forEach items="${catdogList}" var="member">
-		<tr>
-			<td><c:out value="${catdog.id}" /></td>
-			<td><c:out value="${catdog.animal}" />です。</td>
-		</tr>
-	</c:forEach>
+	<h1>結果発表</h1>
+	 
+    <c:set var="animal" value="${param.animalName}" />
+    <h2>${animal}です</h2>
+	<!-- <h2><name="animal">です</h2> -->
+</body>
 </html>
